@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voice Agent - Zautomatyzuj Obsługę Klienta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        h2 {
+            text-align: center;
+            color: #07546c
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: url('assets/voiceagent.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            min-height: 40rem;
+            display: flex;
+            align-items: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        /* .section:nth-child(even) div.feature-item {
+                  background-color: #a0bacb;
+        } */
+
+
+        .section:nth-child(odd) {
+            background: url('assets/voiceagent.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .section:nth-child(odd)::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(2, 37, 51, 0.9);
+            z-index: 1;
+        }
+
+        .section:nth-child(odd) .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section:nth-child(odd) h2 {
+            color: white;
+        }
+
+        .section:nth-child(odd) .benefit-item,
+        .section:nth-child(odd) .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section:nth-child(odd) .benefit-item h3,
+        .section:nth-child(odd) .feature-item h3,
+        .section:nth-child(odd) .benefit-item p,
+        .section:nth-child(odd) .feature-item p {
+            color: white;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .benefit-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .pricing-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        .contact {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+            max-width: 600px;
+        }
+
+        .contact a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .pricing-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Zautomatyzuj Obsługę Klienta z AI Voice Agentem</h1>
+            <p>Nowoczesna Obsługa Call Center bez Zatrudniania Pracowników</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2>Dlaczego Warto?</h2>
+            <div class="benefits">
+                <div class="benefit-item">
+                    <h3>⏰ Działa 24/7</h3>
+                    <p>AI Voice Agent obsługuje Twoich Klientów o każdej porze dnia i nocy.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>👥 Bez Rekrutacji i Szkolenia</h3>
+                    <p>Nie musisz zatrudniać, szkolić ani rozliczać ludzi.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>🛠️ Pełna Skalowalność</h3>
+                    <p>Obsługuje dowolną liczbę połączeń jednocześnie.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>🌍 Polski Język Obsługi</h3>
+                    <p>Rozumiemy i mówimy po polsku!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Oszczędności</h2>
+            <div class="benefit-item" style="max-width: 800px; margin: 40px auto; text-align: center;">
+                <h3>Płać nawet 50-60% mniej niż za pracowników</h3>
+                <p>Nasz AI Voice Agent to znacznie niższy koszt niż tradycyjne call center. Nie płacisz za szkolenia, urlopy, chorobowe ani dodatkowe benefity. Płać tylko za faktycznie wykorzystane minuty rozmów.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container">
+            <h2>Co Oferujemy?</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <h3>Gotowe Scenariusze</h3>
+                    <p>Obsługa klienta, umawianie spotkań, windykacja, FAQ.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Głos Dopasowany do Twojej Marki</h3>
+                    <p>Profesjonalne brzmienie dostosowane do Twojej firmy.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Integracje API</h3>
+                    <p>Połącz z CRM, ERP, kalendarzem i innymi systemami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="cta">
+                <h2>Zacznij Teraz!</h2>
+                <p>Skontaktuj się z nami i umów demo.</p>
+                <p>Zobacz, jak AI może odciążyć Twój biznes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact">
+                <h2>Kontakt</h2>
+                <p>Tel: +48 123 456 789</p>
+                <p>Email: <a href="mailto:kontakt@twojaai.pl">kontakt@twojaai.pl</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 
