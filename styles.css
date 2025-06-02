@@ -23,6 +23,10 @@ h2 {
     color: #07546c;
 }
 
+h3 {
+    color: #07546c;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -148,23 +152,20 @@ header p {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.cta {
+.contact {
     text-align: center;
     padding: 40px 0;
     color: white;
-}
 
-.contact {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 40px auto;
+    /* background: var(--white);
+   
     max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    margin: 40px auto;
 }
 
 .contact a {
-    color: var(--primary-color);
+    color: #00e6ff;
     text-decoration: none;
 }
 
